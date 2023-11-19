@@ -34,6 +34,18 @@ result_divisores = divisores(20)
 """3. Ejercicio: Define una función que tome una lista y retorne una nueva lista con
 los elementos únicos de la lista original."""
 
+#3.
+def unicos(lista):
+  lst = []
+  for elemento in lista:
+    if elemento not in lst:
+      lst.append(elemento)
+  return lst
+
+result_unicos = unicos([1,1,1,2,3,5,6,6,88,2,59,7])
+#print(result_unicos)
+
+
 """4. Ejercicio: Define una función que tome un número y retorne la suma de sus
 dígitos."""
 
@@ -187,6 +199,17 @@ result_ascorder = ascorder([5,6,2,9,1,0,-33,88])
 """14. Ejercicio: Define una función que reciba una lista de palabras y un entero n, y
 retorne la lista de palabras que son más largas que n."""
 
+#14.
+def maslargasquen(lista, n):
+  lst = []
+  for palabra in lista:
+    if len(palabra) > n:
+      lst.append(palabra)
+  return lst
+
+result_maslargasquen = maslargasquen(['hola', 'andre', 'girafarig', 'tortilla'], 5)
+#print(result_maslargasquen)
+
 """15. Ejercicio: Define una función que tome un número y calcule su serie de
 Fibonacci. """
 
@@ -303,6 +326,8 @@ result_cumsum = cumsum([1,2,3,10])
 """23. Ejercicio: Define una función que encuentre el elemento más común en una
 lista."""
 
+#FALTA LA 23#
+
 """24. Ejercicio: Define una función que tome un número y retorne un diccionario con
 la tabla de multiplicar de ese número del 1 al 10."""
 
@@ -318,6 +343,8 @@ result_tablamultiplicar = tablamultiplicar(2)
 
 """25. Ejercicio: Define una función que tome una cadena y retorne un diccionario
 con la cantidad de apariciones de cada caracter en la cadena."""
+
+##FALTA 25###
 
 """26. Ejercicio: Define una función que tome dos listas y retorne la lista de
 elementos que no están en ambas listas."""
@@ -339,8 +366,7 @@ result_notinlistas = notinlistas([1,2,3,20,'Hola'], [4,2,3,6])
 """27. Ejercicio: Define una función que tome una lista y retorne la lista sin
 duplicados."""
 
-#def removeduplicates(lista):
-  
+#############27 IGUAL A LA NUMERO 3############## 
 
 """28. Ejercicio: Define una función que reciba un número entero positivo y retorne la
 suma de los cuadrados de todos los números pares menores o iguales a ese
@@ -377,10 +403,10 @@ cadena más larga en la lista."""
 
 #30.
 
-
 """31. Ejercicio: Define una función que reciba un número entero n y retorne una lista
 con los n primeros números primos."""
 
+#31.
 
 """32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
 pero con las palabras en orden inverso."""
