@@ -326,7 +326,19 @@ result_cumsum = cumsum([1,2,3,10])
 """23. Ejercicio: Define una función que encuentre el elemento más común en una
 lista."""
 
-#FALTA LA 23#
+#23.
+def mascomun(lista):
+  cont = 0
+  frec = 0
+  for i in lista:
+    rep = lista.count(i)
+    if rep > cont:
+      cont = rep
+      frec = i
+  return frec
+
+result_mascomun = mascomun([1,2,3,3,3,10,1,1,2])
+#print(result_mascomun)
 
 """24. Ejercicio: Define una función que tome un número y retorne un diccionario con
 la tabla de multiplicar de ese número del 1 al 10."""
@@ -344,7 +356,19 @@ result_tablamultiplicar = tablamultiplicar(2)
 """25. Ejercicio: Define una función que tome una cadena y retorne un diccionario
 con la cantidad de apariciones de cada caracter en la cadena."""
 
-##FALTA 25###
+#25.
+def cantidadcarac(cadena):
+  dic = {}
+  cont_letra = 0
+  for letra in cadena:
+    if letra == " ":
+      continue
+    else:
+      dic[letra] = cadena.count(letra)
+  return dic
+
+result_cantidadcarac = cantidadcarac("bananas on the trees")
+#print(result_cantidadcarac)
 
 """26. Ejercicio: Define una función que tome dos listas y retorne la lista de
 elementos que no están en ambas listas."""
@@ -383,7 +407,7 @@ def sumacuadradospares(n):
   return somacuadrados
 
 result_somacuadradospares = sumacuadradospares(6)
-print(result_somacuadradospares)
+#print(result_somacuadradospares)
 
 """29. Ejercicio: Define una función que reciba una lista de números y retorne el
 promedio de los números en la lista."""
@@ -402,6 +426,10 @@ result_promedio = promedio([100,80,30])
 cadena más larga en la lista."""
 
 #30.
+#def maslarga(lista):
+
+#result_maslarga = maslarga(['hola','girafarig', 'hallo'])
+#print(result_maslarga)
 
 """31. Ejercicio: Define una función que reciba un número entero n y retorne una lista
 con los n primeros números primos."""
@@ -411,10 +439,28 @@ con los n primeros números primos."""
 """32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
 pero con las palabras en orden inverso."""
 
+#32.
+def ordeninverso(texto):
+  palabras = texto.split(" ")
+  rev = ' '.join(reversed(palabras))
+  return rev
+
+result_ordeninverso = ordeninverso('bananas on the trees')
+#print(result_ordeninverso)
 
 """33. Ejercicio: Escribe una función que reciba una lista de tuplas y retorne una lista
 ordenada basada en el último elemento de cada tupla."""
 
+#para utilizar el parametro key de la función sorted, se necesita una función adicional para el orden.
+def ultimo(ult):
+  return ult[-1]
+
+def orderlast(list_of_tuples):
+  order = sorted(list_of_tuples, key=ultimo)
+  return order
+
+result_orderlast = orderlast([(1,2), (3,4), (2,2), (1,3,1), (2,1,1)])
+print(result_orderlast)
 
 """34. Ejercicio: Define una función que reciba una cadena y retorne la cantidad de
 letras vocales en la cadena."""
