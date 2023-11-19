@@ -30,12 +30,11 @@ print(factor)
 #3.
 def primo(p):
   if p <= 1:
-    return "No primo"
+    return 'No primo'
   for i in range(2, p):
     if p % i == 0:
-      return "No primo"
-    else:
-      return "Primo"
+      return 'No primo'
+  return 'Primo'
 
 resultado_primo = primo(11)
 print(resultado_primo)

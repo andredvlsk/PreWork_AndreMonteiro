@@ -426,15 +426,39 @@ result_promedio = promedio([100,80,30])
 cadena más larga en la lista."""
 
 #30.
-#def maslarga(lista):
+def maslarga(lista):
+  dic = {}
+  for texto in lista:
+    dic[texto] = len(texto)
+  larga = max(dic, key = dic.get)
+  return larga
 
-#result_maslarga = maslarga(['hola','girafarig', 'hallo'])
+#siempre retorna el 1er mayor.
+result_maslarga = maslarga(['hola','girafarig', 'tortillas'])
 #print(result_maslarga)
 
 """31. Ejercicio: Define una función que reciba un número entero n y retorne una lista
 con los n primeros números primos."""
 
 #31.
+#cogiendo la función que identifica si es primo o no
+def primo(p):
+  if p <= 1:
+    return False
+  for i in range(2, p):
+    if p % i == 0:
+      return False
+  return True
+
+def printprimos(n):
+  lst = []
+  for i in range (0,n+1):
+    if primo(i) == True:
+      lst.append(i)
+  return lst
+
+result_printprimos = printprimos(100)
+print(result_printprimos)
 
 """32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
 pero con las palabras en orden inverso."""
@@ -451,6 +475,7 @@ result_ordeninverso = ordeninverso('bananas on the trees')
 """33. Ejercicio: Escribe una función que reciba una lista de tuplas y retorne una lista
 ordenada basada en el último elemento de cada tupla."""
 
+#33.
 #para utilizar el parametro key de la función sorted, se necesita una función adicional para el orden.
 def ultimo(ult):
   return ult[-1]
@@ -460,7 +485,7 @@ def orderlast(list_of_tuples):
   return order
 
 result_orderlast = orderlast([(1,2), (3,4), (2,2), (1,3,1), (2,1,1)])
-print(result_orderlast)
+#print(result_orderlast)
 
 """34. Ejercicio: Define una función que reciba una cadena y retorne la cantidad de
 letras vocales en la cadena."""
