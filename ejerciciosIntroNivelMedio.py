@@ -34,10 +34,6 @@ result_divisores = divisores(20)
 """3. Ejercicio: Define una función que tome una lista y retorne una nueva lista con
 los elementos únicos de la lista original."""
 
-def unique_elements(lista):
-  lst = []
-
-
 """4. Ejercicio: Define una función que tome un número y retorne la suma de sus
 dígitos."""
 
@@ -82,6 +78,20 @@ result_first_elements = first_elements(['margarita',2,'handshake',['echo',23],6,
 """7. Ejercicio: Define una función que tome una cadena y retorne la cantidad de
 letras mayúsculas y minúsculas en la cadena."""
 
+#7.
+def lowerupper(texto):
+  contalower = 0
+  contaupper = 0
+  for i in texto:
+    if i.islower():
+      contalower += 1
+    elif i.isupper():
+      contaupper += 1
+  return contalower, contaupper
+
+result_lowerupper = lowerupper("HolA puEblO")
+#print(result_lowerupper)
+
 """8. Ejercicio: Define una función que tome un número y retorne True si es un
 número perfecto, False en caso contrario. Un número perfecto es aquel que es
 igual a la suma de sus divisores propios positivos. Por ejemplo, 6 es un número
@@ -107,8 +117,26 @@ result_numperfect = numperfect(28)
 """9. Ejercicio: Define una función que reciba un número y retorne su
 representación en binario."""
 
+#9.
+def binary(n):
+  return bin(n)[2:]
+
+result_binary = binary(5)
+#print(result_binary)
+
 """10. Ejercicio: Define una función que reciba dos listas y retorne la intersección de
 ambas (los elementos que están en las dos listas)."""
+
+#10.
+def intersect(lista1, lista2):
+  lst = []
+  for l in lista1:
+    if l in lista2:
+      lst.append(l)
+  return lst
+
+result_intersect = intersect([1,2,3], [4,2,3])
+#print(result_intersect)
 
 """11. Ejercicio: Define una función que tome una cadena y determine si es un
 palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)."""
@@ -131,8 +159,21 @@ múltiplos de tres imprima “Fizz” en lugar del número y para los múltiplos
 cinco imprima “Buzz”. Para números que son múltiplos de tanto tres como cinco
 imprima “FizzBuzz”."""
 
-"""
-13. Ejercicio: Define una función que tome una lista y retorne la lista ordenada en
+#12.
+def fizzbuzz():
+  for i in range(1,51):
+    if i % 3 == 0 and i % 5 == 0:
+      print('FizzBuzz')
+    elif i % 3 == 0:
+      print('Fizz')
+    elif i % 5 == 0:
+      print('Buzz')
+    else:
+      print(i)
+
+#fizzbuzz()
+
+"""13. Ejercicio: Define una función que tome una lista y retorne la lista ordenada en
 orden ascendente."""
 
 #13.
@@ -148,6 +189,20 @@ retorne la lista de palabras que son más largas que n."""
 
 """15. Ejercicio: Define una función que tome un número y calcule su serie de
 Fibonacci. """
+
+#15.
+def seriefibo(n):
+  if n == 0:
+    return [0]
+  elif n == 1:
+    return [0,1]
+  lista = [0,1]
+  for i in range(2,n):
+    lista.append(lista[i-1] + lista[i-2])
+  return lista[-1]
+
+result_seriefibo = seriefibo(10)
+#print(result_seriefibo)
 
 """16. Ejercicio: Define una función que tome una lista de números y retorne el
 número más grande de la lista."""
@@ -217,6 +272,21 @@ result_reverselista = reverselista([1,2,5,'hola','l',88,-26])
 """21. Ejercicio: Define una función que reciba una cadena y cuente el número de
 dígitos y letras que contiene."""
 
+def digitosletras(texto):
+  contadigitos = 0
+  contaletras = 0
+  for i in texto:
+    if i == " ":
+      continue
+    if i.isdigit():
+      contadigitos += 1
+    else:
+      contaletras += 1
+  return contadigitos, contaletras
+
+result_digitosletras = digitosletras('Hola 123')
+#print(result_digitosletras)
+
 """22. Ejercicio: Define una función que reciba una lista de números y retorne la
 suma acumulada de los números"""
 
@@ -231,20 +301,76 @@ result_cumsum = cumsum([1,2,3,10])
 #print(result_cumsum)
 
 """23. Ejercicio: Define una función que encuentre el elemento más común en una
-lista.
-24. Ejercicio: Define una función que tome un número y retorne un diccionario con
-la tabla de multiplicar de ese número del 1 al 10.
-25. Ejercicio: Define una función que tome una cadena y retorne un diccionario
-con la cantidad de apariciones de cada caracter en la cadena.
-26. Ejercicio: Define una función que tome dos listas y retorne la lista de
-elementos que no están en ambas listas.
-27. Ejercicio: Define una función que tome una lista y retorne la lista sin
-duplicados.
-28. Ejercicio: Define una función que reciba un número entero positivo y retorne la
+lista."""
+
+"""24. Ejercicio: Define una función que tome un número y retorne un diccionario con
+la tabla de multiplicar de ese número del 1 al 10."""
+
+#24.
+def tablamultiplicar(n):
+  dic = {}
+  for i in range(1,11):
+    dic[i] = i * n
+  return dic
+
+result_tablamultiplicar = tablamultiplicar(2)
+#print(result_tablamultiplicar)
+
+"""25. Ejercicio: Define una función que tome una cadena y retorne un diccionario
+con la cantidad de apariciones de cada caracter en la cadena."""
+
+"""26. Ejercicio: Define una función que tome dos listas y retorne la lista de
+elementos que no están en ambas listas."""
+
+#26.
+def notinlistas(lista1, lista2):
+  lst = []
+  for l in lista1:
+    if l not in lista2:
+      lst.append(l)
+  for k in lista2:
+    if k not in lista1:
+      lst.append(k)
+  return lst
+
+result_notinlistas = notinlistas([1,2,3,20,'Hola'], [4,2,3,6])
+#print(result_notinlistas)
+
+"""27. Ejercicio: Define una función que tome una lista y retorne la lista sin
+duplicados."""
+
+#def removeduplicates(lista):
+  
+
+"""28. Ejercicio: Define una función que reciba un número entero positivo y retorne la
 suma de los cuadrados de todos los números pares menores o iguales a ese
-número.
-29. Ejercicio: Define una función que reciba una lista de números y retorne el
+número."""
+
+#28.
+def sumacuadradospares(n):
+  somacuadrados = 0
+  contador = 0
+  while contador <= n:
+    if contador % 2 == 0:
+      somacuadrados += contador**2
+    contador += 1
+  return somacuadrados
+
+result_somacuadradospares = sumacuadradospares(6)
+print(result_somacuadradospares)
+
+"""29. Ejercicio: Define una función que reciba una lista de números y retorne el
 promedio de los números en la lista."""
+
+#29.
+def promedio(lista):
+  total = 0
+  for numeros in lista:
+    total += numeros
+  return total / len(lista)
+
+result_promedio = promedio([100,80,30])
+#print(result_promedio)
 
 """30. Ejercicio: Define una función que reciba una lista de cadenas y retorne la
 cadena más larga en la lista."""
@@ -253,11 +379,16 @@ cadena más larga en la lista."""
 
 
 """31. Ejercicio: Define una función que reciba un número entero n y retorne una lista
-con los n primeros números primos.
-32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
-pero con las palabras en orden inverso.
-33. Ejercicio: Escribe una función que reciba una lista de tuplas y retorne una lista
+con los n primeros números primos."""
+
+
+"""32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
+pero con las palabras en orden inverso."""
+
+
+"""33. Ejercicio: Escribe una función que reciba una lista de tuplas y retorne una lista
 ordenada basada en el último elemento de cada tupla."""
+
 
 """34. Ejercicio: Define una función que reciba una cadena y retorne la cantidad de
 letras vocales en la cadena."""
