@@ -1,5 +1,3 @@
-# PreWork_AndreMonteiro
+# ThePowerD&A Repository
 
-PreWork_PythonIntro_TPD&A
-Repositorio para el prework de introducción al Python.
 AMD
