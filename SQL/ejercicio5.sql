@@ -46,3 +46,111 @@ datos a entero.
 "nombre_completo".
 30. Agrega una restricción de clave primaria a la columna "id" en la tabla "Usuarios".
 */
+
+
+create table clientes(
+	id INT,
+	nombre VARCHAR(255)
+)
+
+insert into public.clientes (id, nombre)
+values (1, 'John');
+
+update public.clientes
+set nombre = 'John Doe'
+where id = 1;
+
+delete from public.clientes
+where id = 1;
+
+select * from public.clientes
+
+create table pedidos(
+  id INT,
+  cliente_id INT
+)
+
+insert into public.pedidos (id, cliente_id)
+values (1, 1);
+
+update public.pedidos
+set cliente_id = 2
+where id = 1;
+
+delete from public.pedidos
+where id = 1;
+
+select * from public.pedidos
+
+create table productos(
+  id INT,
+  nombre VARCHAR(255)
+)
+
+insert into public.productos(id, nombre)
+values(1, 'Camisa');
+
+update public.productos
+set nombre = 'Pantalón'
+where id = 1;
+
+delete from public.productos
+where id = 1;
+
+select * from public.productos
+
+create table detallespedido(
+  pedido_id INT,
+  producto_id INT
+)
+
+insert into public.detallespedido(pedido_id, producto_id)
+values (1,1);
+
+update public.detallespedido
+set producto_id = 2
+where pedido_id = 1;
+
+delete from public.detallespedido
+where pedido_id = 1;
+
+select * from public.detallespedido;
+
+select clientes.id, clientes.nombre, pedidos.id
+from public.clientes
+inner join public.pedidos
+on clientes.id = pedidos.cliente_id;
+
+select clientes.id, clientes.nombre, pedidos.id
+from public.clientes
+left join public.pedidos
+on clientes.id = pedidos.cliente_id;
+
+select productos.id, productos.nombre, detallespedido.pedido_id
+from public.productos
+inner join public.detallespedido
+on productos.id = detallespedido.producto_id;
+
+select productos.id, productos.nombre, detallespedido.pedido_id
+from public.productos
+left join public.detallespedido
+on productos.id = detallespedido.producto_id;
+
+alter table public.clientes
+add telefono VARCHAR(255);
+
+alter table public.clientes
+alter column telefono type INT
+using telefono::integer;
+
+alter table public.clientes
+drop column telefono;
+
+alter table public.clientes
+rename to usuarios;
+
+alter table public.usuarios
+rename column nombre to nombre_completo;
+
+alter table public.usuarios
+add primary key (id);
