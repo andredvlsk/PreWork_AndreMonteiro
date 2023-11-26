@@ -16,7 +16,8 @@ de la tabla "Ciudades".
 4. Realiza una consulta que muestre los nombres de los usuarios junto con el
 nombre de su ciudad y país (utiliza un LEFT JOIN).
 5. Realiza una consulta que muestre solo los usuarios que tienen una ciudad
-asociada (utiliza un INNER JOIN). */
+asociada (utiliza un INNER JOIN). 
+*/
 
 CREATE DATABASE MiBaseDeDatos;
 
