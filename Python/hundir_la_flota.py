@@ -30,8 +30,8 @@ def colocar_barcos(tablero):
       columna = random.randint(0, TABLERO_TAMANIO -1)
       direccion = random.choice(['horizontal', 'vertical'])
       if es_posicion_valida(tablero, fila, columna, tam, direccion):
-          colocar_barco(tablero, fila, columna, tam, direccion)
-          break
+        colocar_barco(tablero, fila, columna, tam, direccion)
+        break
 
 def es_posicion_valida(tablero, fila, columna, tam, direccion):
   if direccion == 'horizontal':
@@ -53,10 +53,10 @@ def colocar_barco(tablero, fila, columna, tam, direccion):
 
 def disparar(tablero, fila, columna):
   if tablero[fila][columna] == BARCO:
-    tablero[fila][columna] == HUNDIDO
+    tablero[fila][columna] = HUNDIDO
     return True
   elif tablero[fila][columna] == AGUA:
-    tablero[fila][columna] == FALLO
+    tablero[fila][columna] = FALLO
     return False
 
 def hundir_la_flota():
@@ -76,7 +76,7 @@ def hundir_la_flota():
       else:
         print('AGUA!')
       if all(all(casilla != BARCO for casilla in fila) for fila in tablero):
-        imprimir_tablero(tablero, ocultar_barcos= False)
+        imprimir_tablero(tablero, ocultar_barcos = False)
         print('Enhorabuena! Has hundido la flota.')
         break
       
